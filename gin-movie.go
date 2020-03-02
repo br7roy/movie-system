@@ -5,9 +5,6 @@ import (
 	"net/http"
 )
 
-/**
-ref https://github.com/bddbnet/gin_readme_zh
-*/
 func main() {
 
 	engine := gin.Default()
