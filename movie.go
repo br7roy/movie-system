@@ -6,7 +6,8 @@ import (
 	"net/http"
 )
 
-//https://blog.csdn.net/wangshubo1989/article/details/70313667
+//crud https://blog.csdn.net/wangshubo1989/article/details/70313667
+//模板 https://www.popmars.com/category/html%e6%a8%a1%e6%9d%bf/
 func main() {
 	engine := gin.Default()
 	engine.LoadHTMLGlob("templates/*")
