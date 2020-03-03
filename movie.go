@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"movie-system/app/service"
 	"net/http"
 )
 
@@ -21,6 +22,14 @@ func main() {
 			"text":  "Hello Gin",
 		})
 	})
-	engine.Run(":8080")
+	engine.GET("/show", func(context *gin.Context) {
+		movies := service.GetAllMovies()
+		context.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"movies": movies,
+		})
+
+	})
+
+	_ = engine.Run(":8080")
 
 }
