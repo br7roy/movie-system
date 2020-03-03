@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
+//https://blog.csdn.net/wangshubo1989/article/details/70313667
 func main() {
-
 	engine := gin.Default()
 	engine.LoadHTMLGlob("templates/*")
 	engine.GET("/", func(context *gin.Context) {
