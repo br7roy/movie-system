@@ -1,14 +1,22 @@
-package service
+package handler
 
 import (
 	"database/sql"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"movie-system/app/kit"
 	"movie-system/app/model"
-	_ "movie-system/app/model"
+	"net/http"
 )
 
-func GetAllMovies() []model.Movie {
+func MovieIndex(ctx *gin.Context) {
+	ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
+		"title": "Movie coming.",
+		"text":  "Hello Gin",
+	})
+}
+
+func ShowAllMovies(context *gin.Context) {
 	db, err := sql.Open("sqlite3", "./movie.db")
 	kit.IfNull(err)
 
@@ -38,9 +46,14 @@ func GetAllMovies() []model.Movie {
 
 	_ = query.Close()
 
-	for _, movie := range movies {
-		fmt.Println(movie)
+	if gin.Mode() == gin.DebugMode {
+		for _, movie := range movies {
+			fmt.Println(movie)
+		}
 	}
-	return movies
+
+	context.HTML(http.StatusOK, "movie_index.tmpl", gin.H{
+		"movies": movies,
+	})
 
 }
