@@ -31,9 +31,8 @@ install:
 #go_import_path: github.com/gin-gonic/gin
 
 script:
-  - echo $(pwd)
-  - go test -v ./test
-  - go build movie.go
+  - go test -v $(pwd)/test
+  - go build $(pwd)/movie.go
 #  - make vet
 #  - make fmt-check
 #  - make misspell-check
