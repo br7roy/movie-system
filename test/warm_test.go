@@ -27,16 +27,8 @@ func init() {
 	router = initRouter.SetupRouter(engine)
 
 }
-func TestIndex(t *testing.T) {
-	w := httptest.NewRecorder()
-	req, _ := http.NewRequest(http.MethodGet, "/index", nil)
-	router.ServeHTTP(w, req)
-	assert.Equal(t, http.StatusOK, w.Code)
-	assert.Equal(t, "Hello Gin", w.Body.String())
 
-}
-
-func TestUserSave(t *testing.T) {
+/*func TestUserSave(t *testing.T) {
 	username := "lisi"
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest(http.MethodGet, "/user/"+username, nil)
@@ -44,7 +36,7 @@ func TestUserSave(t *testing.T) {
 	assert.Equal(t, http.StatusOK, w.Code)
 	assert.Equal(t, "用户"+username+"已保存", w.Body.String())
 
-}
+}*/
 
 func TestUserNameAgeSave(t *testing.T) {
 	name := "zhangsan"
