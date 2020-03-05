@@ -19,11 +19,11 @@ func init() {
 	gin.SetMode(gin.DebugMode)
 	engine := gin.Default()
 	if mode := gin.Mode(); mode == gin.DebugMode {
-		engine.LoadHTMLGlob("./../templates/*")
-		engine.Static("./../statics", "./statics")
+		engine.LoadHTMLGlob("./templates/*")
+		engine.Static("./statics", "./statics")
 	} else {
 		engine.LoadHTMLGlob("templates/*")
-		engine.Static("./../statics", "./statics")
+		engine.Static("./statics", "./statics")
 	}
 	router = initRouter.SetupRouter(engine)
 
