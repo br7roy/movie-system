@@ -22,6 +22,7 @@ git:
 
 before_install:
   - if [[ "${GO111MODULE}" = "on" ]]; then mkdir "${HOME}/go"; export GOPATH="${HOME}/go"; fi
+  - chmod +x .travis/build.sh
 
 install:
   - if [[ "${GO111MODULE}" = "on" ]]; then go mod download; fi
