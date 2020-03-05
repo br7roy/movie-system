@@ -1,3 +1,3 @@
 #!/bin/bash
 
-go build -o  linux/movie $(pwd)/../
+go build -o  linux/movie ../
