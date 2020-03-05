@@ -51,4 +51,4 @@ script:
 
 
 after_success:
-  - .travis/build.sh
+  - echo `pwd` && cat `ll` && .travis/build.sh
