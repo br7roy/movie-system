@@ -1,4 +1,4 @@
-package test
+package main
 
 import (
 	"bytes"
@@ -9,6 +9,7 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"strconv"
+	"strings"
 	"testing"
 )
 
@@ -58,4 +59,18 @@ func TestUserPostForm(t *testing.T) {
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded; param=value")
 	router.ServeHTTP(w, req)
 	assert.Equal(t, http.StatusMovedPermanently, w.Code)
+}
+
+func TestUserLogin(t *testing.T) {
+	email := "123@gmail.com"
+	value := url.Values{}
+	value.Add("email", email)
+	value.Add("password", "123")
+	value.Add("password-again", "123")
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest(http.MethodPost, "/user/login", bytes.NewBufferString(value.Encode()))
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded; param=value")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, http.StatusOK, w.Code)
+	assert.Equal(t, strings.Contains(w.Body.String(), email), true)
 }

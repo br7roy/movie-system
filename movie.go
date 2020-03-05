@@ -2,7 +2,10 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"movie-system/app/kit"
+	"movie-system/app/middle"
 	"movie-system/app/router"
+	"net/http"
 )
 
 //crud https://blog.csdn.net/wangshubo1989/article/details/70313667
@@ -13,13 +16,18 @@ func main() {
 
 	engine := gin.Default()
 
+	// 添加中间件
+	engine.Use(middle.Logger())
+
 	// 引入静态资源
-	engine.LoadHTMLGlob("templates/*")
+	engine.LoadHTMLGlob("./templates/*")
 	engine.Static("/statics", "./statics")
 
 	// 添加网站icon
 	engine.StaticFile("/favicon.ico", "./favicon.ico")
 
+	// 添加上传静态资源目录
+	engine.StaticFS("/avatar", http.Dir(kit.RootPath()+"avatar/"))
 	// 初始化旅游管理
 	router := initRouter.SetupRouter(engine)
 

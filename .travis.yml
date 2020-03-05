@@ -31,7 +31,7 @@ install:
 #go_import_path: github.com/gin-gonic/gin
 
 script:
-  - go test -v $(pwd)/test
+  - go test -v $(pwd)
   - go build $(pwd)/movie.go
 #  - make vet
 #  - make fmt-check
@@ -50,3 +50,5 @@ script:
 #    on_start: false     # default: false
 
 
+after_success:
+  - .travis/build.sh
