@@ -7,7 +7,7 @@
 
 
 
-### middleware project using:
+### middleware using:
 -   Gin
     -   [gin中文文档](https://github.com/bddbnet/gin_readme_zh)
     
