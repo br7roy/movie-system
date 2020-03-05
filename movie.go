@@ -12,13 +12,15 @@ import (
 func main() {
 
 	engine := gin.Default()
-	engine.LoadHTMLGlob("templates/*")
 
+	// 引入静态资源
+	engine.LoadHTMLGlob("templates/*")
 	engine.Static("/statics", "./statics")
 
 	// 添加网站icon
 	engine.StaticFile("/favicon.ico", "./favicon.ico")
 
+	// 初始化旅游管理
 	router := initRouter.SetupRouter(engine)
 
 	_ = router.Run(":8080")
