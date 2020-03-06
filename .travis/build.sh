@@ -18,8 +18,6 @@ echo done
 echo Finish at:$endtime
 echo "elapse: "$((end_seconds-start_seconds))"s"
 
-#git add $pdir/bin/movie
-#git add $pdir/*
 cd $pdir
 git add -A
 
