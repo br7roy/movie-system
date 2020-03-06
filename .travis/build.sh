@@ -27,6 +27,6 @@ ls -l $pdir
 echo 'check files ok'
 git commit -m "add artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
 #git pull
-git push origin master :master --force
+git push origin master:master --force
 
 echo push done
