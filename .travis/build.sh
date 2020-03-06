@@ -19,7 +19,7 @@ git remote -v
 
 #git add $pdir/bin/movie
 #git add $pdir/*
-#cd $pdir
+cd $pdir
 git add -A
 
 echo 'check files'
