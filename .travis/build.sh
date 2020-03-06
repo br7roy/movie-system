@@ -23,9 +23,9 @@ echo "elapse: "$((end_seconds-start_seconds))"s"
 cd $pdir
 git add -A
 
-echo 'check files'
 ls -l $pdir
-echo 'check files ok'
+git branch
+git checkout master
 git commit -am "add artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
 #git pull
 git push origin master:master --force
