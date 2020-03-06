@@ -23,6 +23,11 @@ git:
 before_install:
   - if [[ "${GO111MODULE}" = "on" ]]; then mkdir "${HOME}/go"; export GOPATH="${HOME}/go"; fi
   - if [ ! -f "$(pwd)/.travis/build.sh" ]; then chmod +x $(pwd)/.travis/build.sh ; fi
+  - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in .travis/movie-system.enc -out ~/.ssh/id_rsa_github -d
+  - chmod 600 ~/.ssh/id_rsa_github
+  - mv -fv .travis/ssh_config ~/.ssh/config
+  - git config --global user.name "Tak via travis-cli"
+  - git config --global user.email "br7roy@gmail.com"
 
 install:
   - if [[ "${GO111MODULE}" = "on" ]]; then go mod download; fi
