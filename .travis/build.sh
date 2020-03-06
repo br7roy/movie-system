@@ -18,7 +18,7 @@ git remote -v
 
 git add $pdir/bin/movie
 echo 'check files'
-ll
+ls -l $pdir
 echo 'check files ok'
 git commit -am"add artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
 git pull
