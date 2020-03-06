@@ -28,7 +28,7 @@ func main() {
 
 	// 添加上传静态资源目录
 	engine.StaticFS("/avatar", http.Dir(kit.RootPath()+"avatar/"))
-	// 初始化旅游管理
+	// 初始化路由管理
 	router := initRouter.SetupRouter(engine)
 
 	_ = router.Run(":8080")

@@ -18,13 +18,13 @@ git remote set-url origin git@github.com:br7roy/movie-system.git
 git remote -v
 
 #git add $pdir/bin/movie
-git add $pdir/bin
+git add $pdir/bin/*
 
 echo 'check files'
 ls -l $pdir
 echo 'check files ok'
 git commit -m "add artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
 #git pull
-git push origin master:master --force --quiet
+git push origin master:master
 
 echo push done
