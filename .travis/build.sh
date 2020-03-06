@@ -18,16 +18,13 @@ echo done
 echo Finish at:$endtime
 echo "elapse: "$((end_seconds-start_seconds))"s"
 
-#git add $pdir/bin/movie
-#git add $pdir/*
 cd $pdir
 git add -A
 
 ls -l $pdir
+git commit -am "building artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
 git branch
 git checkout master
-git commit -am "add artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
-#git pull
 git push origin master:master --force
 
 echo push done
