@@ -17,7 +17,7 @@ git remote set-url origin git@github.com:br7roy/movie-system.git
 git remote -v
 
 #git add $pdir/bin/movie
-git add ../ -A
+git add ../bin
 
 echo 'check files'
 ls -l $pdir
