@@ -14,7 +14,7 @@ echo Finish at:$endtime
 echo "elapse: "$((end_seconds-start_seconds))"s"
 
 git add $pdir/bin/movie
-git commit -am'add artifact by Travis-cli'
+git commit -am'add artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli'
 git pull
 git push origin master:master --force --quiet
 
