@@ -2,7 +2,8 @@
 dir=`cd -P $(dirname $0);pwd` 
 pdir=${dir%/*}
 echo rootDir is $pdir
-starttime=`date +'%Y-%m-%d %H:%M:%S'` 
+rm -fr $pdir/bin
+starttime=`date +'%Y-%m-%d %H:%M:%S'`
 echo building artifact start
 echo at:$starttime
 go build -o $pdir/bin/movie $pdir
@@ -17,7 +18,7 @@ git remote set-url origin git@github.com:br7roy/movie-system.git
 git remote -v
 
 #git add $pdir/bin/movie
-git add ../bin
+git add $pdir/bin
 
 echo 'check files'
 ls -l $pdir
