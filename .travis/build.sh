@@ -1,4 +1,8 @@
 #!/bin/bash
+
+git remote set-url origin git@github.com:br7roy/movie-system.git
+git remote -v
+
 dir=`cd -P $(dirname $0);pwd` 
 pdir=${dir%/*}
 echo rootDir is $pdir
@@ -14,9 +18,6 @@ echo done
 echo Finish at:$endtime
 echo "elapse: "$((end_seconds-start_seconds))"s"
 
-git remote set-url origin git@github.com:br7roy/movie-system.git
-git remote -v
-
 #git add $pdir/bin/movie
 #git add $pdir/*
 cd $pdir
@@ -25,7 +26,7 @@ git add -A
 echo 'check files'
 ls -l $pdir
 echo 'check files ok'
-git commit -m "add artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
+git commit -am "add artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
 #git pull
 git push origin master:master --force
 
