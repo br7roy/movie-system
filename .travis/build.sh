@@ -3,6 +3,7 @@
 #git remote set-url origin git@github.com:br7roy/movie-system.git
 #git remote -v
 git clone --branch master git@github.com:br7roy/movie-system.git ~/.master_deploy
+rm -fr ~/.master_deploy/*
 
 dir=`cd -P $(dirname $0);pwd` 
 pdir=${dir%/*}
@@ -19,7 +20,7 @@ echo building done
 echo Finish at:$endtime
 echo "elapse: "$((end_seconds-start_seconds))"s"
 
-mv -fv $pdir/** ~/.master_deploy
+mv -fv $pdir/* ~/.master_deploy
 cd ~/.master_deploy
 
 git add -A
