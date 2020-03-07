@@ -14,7 +14,7 @@ go build -o $pdir/bin/movie $pdir
 endtime=`date +'%Y-%m-%d %H:%M:%S'` 
 start_seconds=$(date --date="$starttime" +%s)
 end_seconds=$(date --date="$endtime" +%s)
-echo done
+echo building done
 echo Finish at:$endtime
 echo "elapse: "$((end_seconds-start_seconds))"s"
 
