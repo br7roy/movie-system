@@ -6,19 +6,19 @@ starting test.
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] Loaded HTML Templates (13): 
-	- 
 	- 401.tmpl
 	- error.tmpl
-	- header.tmpl
-	- login.tmpl
-	- nav.tmpl
-	- nav
 	- header
 	- index.tmpl
-	- login-form
 	- register-form
-	- movie_index.tmpl
+	- nav.tmpl
 	- user_profile.tmpl
+	- 
+	- header.tmpl
+	- login.tmpl
+	- login-form
+	- movie_index.tmpl
+	- nav
 
 [GIN-debug] GET    /statics/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] HEAD   /statics/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
@@ -47,18 +47,18 @@ starting test.
 [GIN-debug] GET    /                         --> movie-system/app/handler.MovieIndex (3 handlers)
 [GIN-debug] GET    /show                     --> movie-system/app/handler.ShowAllMovies (3 handlers)
 === RUN   TestUserLogin
-2020/03/07 05:00:41 登录成功 123@gmail.com
-[GIN] 2020/03/07 - 05:00:41 | 200 |    1.957552ms |                 | POST     /user/login
+2020/03/07 05:01:59 登录成功 123@gmail.com
+[GIN] 2020/03/07 - 05:01:59 | 200 |    1.417624ms |                 | POST     /user/login
 --- PASS: TestUserLogin (0.00s)
 PASS
-ok  	movie-system	0.009s
+ok  	movie-system	0.028s
 starting test done.
 rootDir is /home/travis/gopath/src/github.com/br7roy/movie-system
 building artifact...
-start at:2020-03-07 05:00:41
+start at:2020-03-07 05:01:59
 building done
-Finish at:2020-03-07 05:00:44
-elapse: 3s
+Finish at:2020-03-07 05:02:01
+elapse: 2s
 '/home/travis/gopath/src/github.com/br7roy/movie-system/app' -> '/home/travis/.master_deploy/app'
 '/home/travis/gopath/src/github.com/br7roy/movie-system/app.yaml' -> '/home/travis/.master_deploy/app.yaml'
 '/home/travis/gopath/src/github.com/br7roy/movie-system/bin' -> '/home/travis/.master_deploy/bin'
