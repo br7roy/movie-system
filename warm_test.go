@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"strconv"
 	"strings"
 	"testing"
 )
@@ -38,7 +39,7 @@ func init() {
 
 }*/
 
-/*func TestUserNameAgeSave(t *testing.T) {
+func TestUserNameAgeSave(t *testing.T) {
 	name := "zhangsan"
 	age := 30
 	w := httptest.NewRecorder()
@@ -47,8 +48,8 @@ func init() {
 	assert.Equal(t, http.StatusOK, w.Code)
 	assert.Equal(t, "user"+name+(strconv.Itoa(age))+"save", w.Body.String())
 
-}*/
-/*func TestUserPostForm(t *testing.T) {
+}
+func TestUserPostForm(t *testing.T) {
 	value := url.Values{}
 	value.Add("email", "123@gmail.com")
 	value.Add("password", "123")
@@ -58,7 +59,7 @@ func init() {
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded; param=value")
 	router.ServeHTTP(w, req)
 	assert.Equal(t, http.StatusMovedPermanently, w.Code)
-}*/
+}
 
 func TestUserLogin(t *testing.T) {
 	email := "123@gmail.com"
