@@ -29,13 +29,15 @@ goTest() {
   go test -v $(pwd)
 
 }
-
-starttime=$(date +'%Y-%m-%d %H:%M:%S')
-echo -e "start go test...\nstart at:${starttime}"
-goTest
-echo -e "go test done.\nstart deploy master."
-masterDep
-endtime=$(date +'%Y-%m-%d %H:%M:%S')
-start_seconds=$(date --date="$starttime" +%s)
-end_seconds=$(date --date="$endtime" +%s)
-echo -e "all done\nFinish at:${endtime}\nelapse: $((end_seconds - start_seconds))s"
+run() {
+  starttime=$(date +'%Y-%m-%d %H:%M:%S')
+  echo -e "start go test...\nstart at:${starttime}"
+  goTest
+  echo -e "go test done.\nstart deploy master."
+  masterDep
+  endtime=$(date +'%Y-%m-%d %H:%M:%S')
+  start_seconds=$(date --date="$starttime" +%s)
+  end_seconds=$(date --date="$endtime" +%s)
+  echo -e "all done\nFinish at:${endtime}\nelapse: $((end_seconds - start_seconds))s"
+}
+run
