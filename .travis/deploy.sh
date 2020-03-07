@@ -26,7 +26,6 @@ masterDep() {
   git commit -am "building artifact on $(date +"%Y-%m-%d %H:%M:%S") by Travis-cli"
   git push origin master:master --force
 
-  echo all done .
 }
 
 goTest() {
@@ -37,3 +36,4 @@ goTest() {
 
 goTest
 masterDep
+echo all done .
