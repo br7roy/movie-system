@@ -1,5 +1,5 @@
 start go test...
-start at:2020-03-07 05:05:34
+start at:2020-03-07 05:09:27
 [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
 
 [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
@@ -7,19 +7,19 @@ start at:2020-03-07 05:05:34
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] Loaded HTML Templates (13): 
+	- 401.tmpl
 	- header.tmpl
+	- login-form
+	- nav
+	- user_profile.tmpl
+	- nav.tmpl
+	- 
+	- error.tmpl
 	- header
 	- index.tmpl
 	- login.tmpl
-	- login-form
-	- nav
-	- 401.tmpl
-	- error.tmpl
-	- user_profile.tmpl
-	- movie_index.tmpl
-	- nav.tmpl
-	- 
 	- register-form
+	- movie_index.tmpl
 
 [GIN-debug] GET    /statics/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] HEAD   /statics/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
@@ -48,13 +48,13 @@ start at:2020-03-07 05:05:34
 [GIN-debug] GET    /                         --> movie-system/app/handler.MovieIndex (3 handlers)
 [GIN-debug] GET    /show                     --> movie-system/app/handler.ShowAllMovies (3 handlers)
 === RUN   TestUserLogin
-2020/03/07 05:06:09 登录成功 123@gmail.com
-[GIN] 2020/03/07 - 05:06:09 | 200 |    1.585456ms |                 | POST     /user/login
+2020/03/07 05:10:04 登录成功 123@gmail.com
+[GIN] 2020/03/07 - 05:10:04 | 200 |    2.568033ms |                 | POST     /user/login
 --- PASS: TestUserLogin (0.00s)
 PASS
-ok  	movie-system	0.009s
+ok  	movie-system	0.028s
 go test done.
- start deploy master.
+start deploy master.
 rootDir is /home/travis/gopath/src/github.com/br7roy/movie-system
 '/home/travis/gopath/src/github.com/br7roy/movie-system/app' -> '/home/travis/.master_deploy/app'
 '/home/travis/gopath/src/github.com/br7roy/movie-system/app.yaml' -> '/home/travis/.master_deploy/app.yaml'
