@@ -1,0 +1,20 @@
+rootDir is /home/travis/gopath/src/github.com/br7roy/movie-system
+building artifact...
+start at:2020-03-07 04:47:14
+building done
+Finish at:2020-03-07 04:47:16
+elapse: 2s
+'/home/travis/gopath/src/github.com/br7roy/movie-system/app' -> '/home/travis/.master_deploy/app'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/app.yaml' -> '/home/travis/.master_deploy/app.yaml'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/bin' -> '/home/travis/.master_deploy/bin'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/favicon.ico' -> '/home/travis/.master_deploy/favicon.ico'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/go.mod' -> '/home/travis/.master_deploy/go.mod'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/go.sum' -> '/home/travis/.master_deploy/go.sum'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/movie.db' -> '/home/travis/.master_deploy/movie.db'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/movie.go' -> '/home/travis/.master_deploy/movie.go'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/pkg' -> '/home/travis/.master_deploy/pkg'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/README.md' -> '/home/travis/.master_deploy/README.md'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/statics' -> '/home/travis/.master_deploy/statics'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/templates' -> '/home/travis/.master_deploy/templates'
+'/home/travis/gopath/src/github.com/br7roy/movie-system/warm_test.go' -> '/home/travis/.master_deploy/warm_test.go'
+total 0
