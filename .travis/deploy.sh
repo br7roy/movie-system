@@ -20,14 +20,13 @@ run() {
 
   git add -A
 
-  ls -l $pdir
-
-  git commit -am "deploy artifact on $(date +"%Y-%m-%d %H:%M:%S") by Travis-cli"
-  git push origin master:master --force --quiet
   endtime=$(date +'%Y-%m-%d %H:%M:%S')
   start_seconds=$(date --date="$starttime" +%s)
   end_seconds=$(date --date="$endtime" +%s)
   echo -e "all done\nFinish at:${endtime}\nelapse: $((end_seconds - start_seconds))s"
+  git commit -am "deploy artifact on $(date +"%Y-%m-%d %H:%M:%S") by Travis-cli"
+  git push origin master:master --force --quiet
+
 }
 
 run
