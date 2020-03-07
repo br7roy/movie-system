@@ -1,9 +1,64 @@
+starting test.
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (13): 
+	- 401.tmpl
+	- error.tmpl
+	- header
+	- nav
+	- 
+	- index.tmpl
+	- login.tmpl
+	- login-form
+	- register-form
+	- movie_index.tmpl
+	- nav.tmpl
+	- user_profile.tmpl
+	- header.tmpl
+
+[GIN-debug] GET    /statics/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /statics/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] POST   /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] PUT    /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] PATCH  /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] HEAD   /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] OPTIONS /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] DELETE /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] CONNECT /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] TRACE  /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
+[GIN-debug] GET    /user/rj                  --> movie-system/app/handler.UserRegisterJump (3 handlers)
+[GIN-debug] POST   /user/register            --> movie-system/app/handler.UserRegister (3 handlers)
+[GIN-debug] GET    /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] POST   /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] PUT    /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] PATCH  /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] HEAD   /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] OPTIONS /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] DELETE /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] CONNECT /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] TRACE  /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
+[GIN-debug] GET    /user/profile/            --> movie-system/app/handler.UserProfile (4 handlers)
+[GIN-debug] POST   /user/update              --> movie-system/app/handler.UpdateUserProfile (4 handlers)
+[GIN-debug] GET    /                         --> movie-system/app/handler.MovieIndex (3 handlers)
+[GIN-debug] GET    /show                     --> movie-system/app/handler.ShowAllMovies (3 handlers)
+=== RUN   TestUserLogin
+2020/03/07 04:55:26 登录成功 123@gmail.com
+[GIN] 2020/03/07 - 04:55:26 | 200 |    3.811008ms |                 | POST     /user/login
+--- PASS: TestUserLogin (0.01s)
+PASS
+ok  	movie-system	0.039s
+starting test done.
 rootDir is /home/travis/gopath/src/github.com/br7roy/movie-system
 building artifact...
-start at:2020-03-07 04:47:25
+start at:2020-03-07 04:55:26
 building done
-Finish at:2020-03-07 04:47:28
-elapse: 3s
+Finish at:2020-03-07 04:55:28
+elapse: 2s
 '/home/travis/gopath/src/github.com/br7roy/movie-system/app' -> '/home/travis/.master_deploy/app'
 '/home/travis/gopath/src/github.com/br7roy/movie-system/app.yaml' -> '/home/travis/.master_deploy/app.yaml'
 '/home/travis/gopath/src/github.com/br7roy/movie-system/bin' -> '/home/travis/.master_deploy/bin'
