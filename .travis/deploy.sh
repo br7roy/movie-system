@@ -1,7 +1,10 @@
 #!/bin/bash
 
-masterDep() {
-
+run() {
+  starttime=$(date +'%Y-%m-%d %H:%M:%S')
+  echo -e "start go test...\nat:${starttime}"
+  go test -v $(pwd)
+  echo -e "go test done.\nstart deploy master."
   dir=$(
     cd -P $(dirname $0)
     pwd
@@ -12,32 +15,19 @@ masterDep() {
 
   go build -o $pdir/bin/movie $pdir
 
-  mv -fv $pdir/* ~/.master_deploy
+  mv -f $pdir/* ~/.master_deploy
   cd ~/.master_deploy
 
   git add -A
 
   ls -l $pdir
 
-  git commit -am "building artifact on $(date +"%Y-%m-%d %H:%M:%S") by Travis-cli"
+  git commit -am "deploy artifact on $(date +"%Y-%m-%d %H:%M:%S") by Travis-cli"
   git push origin master:master --force --quiet
-
-}
-
-goTest() {
-
-  go test -v $(pwd)
-
-}
-run() {
-  starttime=$(date +'%Y-%m-%d %H:%M:%S')
-  echo -e "start go test...\nstart at:${starttime}"
-  goTest
-  echo -e "go test done.\nstart deploy master."
-  masterDep
   endtime=$(date +'%Y-%m-%d %H:%M:%S')
   start_seconds=$(date --date="$starttime" +%s)
   end_seconds=$(date --date="$endtime" +%s)
   echo -e "all done\nFinish at:${endtime}\nelapse: $((end_seconds - start_seconds))s"
 }
+
 run
