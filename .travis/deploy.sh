@@ -1,5 +1,5 @@
 #!/bin/bash
-run() {
+masterDep() {
 
   dir=$(
     cd -P $(dirname $0)
@@ -29,4 +29,11 @@ run() {
   echo all done .
 }
 
-run
+goTest() {
+  echo starting test.
+  go test -v $(pwd)
+  echo starting test done.
+}
+
+goTest
+masterDep

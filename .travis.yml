@@ -37,9 +37,9 @@ install:
 #go_import_path: github.com/gin-gonic/gin
 
 script:
-  - echo starting test.
-  - go test -v $(pwd)
-  - echo starting test done.
+  - git clone --branch master git@github.com:br7roy/movie-system.git ~/.master_deploy
+  - rm -fr ~/.master_deploy/*
+
 #  - make vet
 #  - make fmt-check
 #  - make misspell-check
@@ -58,6 +58,4 @@ script:
 
 
 after_success:
-  - git clone --branch master git@github.com:br7roy/movie-system.git ~/.master_deploy
-  - rm -fr ~/.master_deploy/*
-  - bash .travis/deploy.sh |tee ~/.master_deploy/deploy.log
+  - bash .travis/deploy.sh | tee ~/.master_deploy/deploy.log
