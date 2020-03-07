@@ -1,8 +1,8 @@
 #!/bin/bash
 
-git remote set-url origin git@github.com:br7roy/movie-system.git
-git remote -v
-git clone --branch origin master git@github.com:br7roy/movie-system.git ~/.master_deploy
+#git remote set-url origin git@github.com:br7roy/movie-system.git
+#git remote -v
+git clone --branch master git@github.com:br7roy/movie-system.git ~/.master_deploy
 
 dir=`cd -P $(dirname $0);pwd` 
 pdir=${dir%/*}
