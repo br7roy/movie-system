@@ -20,7 +20,7 @@ masterDep() {
   ls -l $pdir
 
   git commit -am "building artifact on $(date +"%Y-%m-%d %H:%M:%S") by Travis-cli"
-  git push origin master:master --force
+  git push origin master:master --force --quiet
 
 }
 
@@ -33,7 +33,7 @@ goTest() {
 starttime=$(date +'%Y-%m-%d %H:%M:%S')
 echo -e "start go test...\nstart at:${starttime}"
 goTest
-echo -e "go test done.\n start deploy master."
+echo -e "go test done.\nstart deploy master."
 masterDep
 endtime=$(date +'%Y-%m-%d %H:%M:%S')
 start_seconds=$(date --date="$starttime" +%s)
