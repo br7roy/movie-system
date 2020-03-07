@@ -26,9 +26,8 @@ cd ~/.master_deploy
 git add -A
 
 ls -l $pdir
-git branch
-git checkout master
+
 git commit -am "building artifact on `date +"%Y-%m-%d %H:%M:%S"` by Travis-cli"
 git push origin master:master --force
 
-echo push done
+echo all done .
