@@ -4,7 +4,7 @@
 
 [![Build Status](https://www.travis-ci.org/br7roy/movie-system.svg?branch=master)](https://www.travis-ci.org/br7roy/movie-system)
 
-
+#####  [View the latest deployment logs](deploy.log)
 
 
 ### middleware using:
