@@ -6,3 +6,14 @@ api_version: go1
 handlers:
 - url: /.*
   script: _go_app
+
+server:
+  mode: debug
+  host: 0.0.0.0
+  port: 8080
+
+datasource:
+  host:
+  password:
+  schema:
+#https://blog.csdn.net/hexiaoyun128/article/details/83109598

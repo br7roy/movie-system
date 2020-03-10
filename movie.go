@@ -20,7 +20,7 @@ func main() {
 	engine.Use(middle.Logger())
 
 	// 引入静态资源
-	engine.LoadHTMLGlob("./templates/*")
+	engine.LoadHTMLGlob("templates/*")
 	engine.Static("/statics", "./statics")
 
 	// 添加网站icon

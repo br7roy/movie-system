@@ -27,11 +27,15 @@ func SetupRouter(engine *gin.Engine) *gin.Engine {
 
 	}
 
-	mGoup := engine.Group("")
+	indexGroup := engine.Group("")
 	{
-		mGoup.GET("", handler.MovieIndex)
+		indexGroup.GET("", handler.MovieIndex)
 
-		mGoup.GET("/show", handler.ShowAllMovies)
+		//indexGroup.GET("/show", handler.ShowAllMovies)
+	}
+	mGroup := engine.Group("/movie")
+	{
+		mGroup.GET("/show", handler.ShowAllMovies)
 	}
 
 	return engine

@@ -1,0 +1,15 @@
+{{define "movie"}}
+    <table class="table table-bordered">
+        <tr>
+            <th>电影名称</th>
+            <th>简介</th>
+            {{/*                    <th>豆瓣链接</th>*/}}
+        </tr>
+        {{range .movies}}
+            <tr>
+                <td>{{.Name}}<input id="{{.Id}}" hidden="hidden"></td>
+                <td>{{.Desc}}<a target="_blank" href="{{.Path}}">点击看详情</a></td>
+            </tr>
+        {{end}}
+    </table>
+{{end}}

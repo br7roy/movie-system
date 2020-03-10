@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"database/sql"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"movie-system/app/db"
 	"movie-system/app/kit"
 	"movie-system/app/model"
 	"net/http"
@@ -11,36 +11,30 @@ import (
 
 func MovieIndex(ctx *gin.Context) {
 	ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
-		"title": "Movie coming.",
-		"text":  "Hello Gin",
+		"title":    "Movie coming.",
+		"navTitle": "Hello World",
 	})
 }
 
 func ShowAllMovies(context *gin.Context) {
-	db, err := sql.Open("sqlite3", "./movie.db")
-	kit.IfNull(err)
 
-	sql_table := `
-
-      select * from movie ;
-    `
-	query, err := db.Query(sql_table)
+	sql_table := "select * from movie"
+	query, err := db.Db.Query(sql_table)
 
 	kit.IfNull(err)
 
-	var mname string
-	var mdesc string
-	var mpath string
+	var id int
+	var name string
+	var desc string
+	var path string
 	var movies []model.Movie
 
 	for query.Next() {
-		err := query.Scan(&mname, &mdesc, &mpath)
+		err := query.Scan(&id, &name, &desc, &path)
 
 		kit.IfNull(err)
-		fmt.Println(mname)
-		fmt.Println(mdesc)
-		fmt.Println(mpath)
-		movie := model.Movie{Mpath: mpath, Mdesc: mdesc, Mname: mname}
+
+		movie := model.Movie{Id: id, Path: path, Desc: desc, Name: name}
 		movies = append(movies, movie)
 	}
 
@@ -52,7 +46,7 @@ func ShowAllMovies(context *gin.Context) {
 		}
 	}
 
-	context.HTML(http.StatusOK, "movie_index.tmpl", gin.H{
+	context.HTML(http.StatusOK, "index.tmpl", gin.H{
 		"movies": movies,
 	})
 

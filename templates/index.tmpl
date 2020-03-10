@@ -1,7 +1,13 @@
-{{template "header"}}
-<header>
+<body>
+<div class="container">
+<header class="header">
+    {{template "header"}}
     {{template "nav" .}}
 </header>
-<main>
+<main class="main">
     {{ .title }}
+    {{template "main" .}}
 </main>
+    {{ template "footer" .}}
+</div>
+</body>
