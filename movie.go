@@ -36,6 +36,7 @@ func main() {
 	// 初始化路由管理
 	router := initRouter.SetupRouter(engine)
 
-	_ = router.Run(":8080")
+	gin.SetMode(kit.AppConfig.Server.Mode)
+	_ = router.Run(":" + kit.AppConfig.Server.Port)
 
 }

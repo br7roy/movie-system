@@ -18,7 +18,9 @@ type appConfig struct {
 type database struct {
 	Type       string `yaml:"type"`
 	StoreHouse string `yaml:"storeHouse"`
+	Port       int    `yaml:"port"`
 	Url        string `yaml:"url"`
+	UserName   string `yaml:"userName"`
 	Password   string `yaml:"password"`
 }
 
@@ -29,8 +31,7 @@ type jwt struct {
 
 type server struct {
 	Mode string `yaml:"mode"`
-	Host string `yaml:"host"`
-	Port int    `yaml:"port"`
+	Port string `yaml:"port"`
 }
 
 var (

@@ -5,24 +5,16 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
-)
-
-//数据库连接信息
-const (
-	USERNAME = "movie-system"
-	PASSWORD = "ZaW6rjRcee26ijEc"
-	NETWORK  = "tcp"
-	SERVER   = "158.51.124.231"
-	PORT     = 3306
-	DATABASE = "movie-system"
+	"movie-system/app/kit"
+	_ "movie-system/app/kit"
 )
 
 var Db *sql.DB
 
 func init() {
 	var err error
-	conn := fmt.Sprintf("%s:%s@%s(%s:%d)/%s", USERNAME, PASSWORD, NETWORK, SERVER, PORT, DATABASE)
-	Db, err = sql.Open("mysql", conn)
+	conn := fmt.Sprintf("%s:%s@%s(%s:%d)/%s", kit.AppConfig.Database.UserName, kit.AppConfig.Database.Password, "tcp", kit.AppConfig.Database.Url, kit.AppConfig.Database.Port, kit.AppConfig.Database.StoreHouse)
+	Db, err = sql.Open(kit.AppConfig.Database.Type, conn)
 	if err != nil {
 		log.Panicln("err:", err.Error())
 	}
