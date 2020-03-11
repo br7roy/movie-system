@@ -1,76 +1,19 @@
 start go test...
-at:2020-03-10 09:30:23
-[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+at:2020-03-11 06:43:57
+2020/03/11 06:44:09 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/movie-system/test/app.yaml: no such file or directory
+panic: 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/movie-system/test/app.yaml: no such file or directory
 
-[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
- - using env:	export GIN_MODE=release
- - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] Loaded HTML Templates (18): 
-	- 
-	- 401.tmpl
-	- login-form
-	- movie.tmpl
-	- user_profile.tmpl
-	- error.tmpl
-	- header.tmpl
-	- main.tmpl
-	- main
-	- nav.tmpl
-	- footer.tmpl
-	- footer
-	- index.tmpl
-	- login.tmpl
-	- register-form
-	- movie
-	- nav
-	- header
-
-[GIN-debug] GET    /statics/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
-[GIN-debug] HEAD   /statics/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
-[GIN-debug] GET    /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] POST   /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] PUT    /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] PATCH  /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] HEAD   /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] OPTIONS /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] DELETE /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] CONNECT /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] TRACE  /user                     --> movie-system/app/handler.UserNameAgeSave (3 handlers)
-[GIN-debug] GET    /user/rj                  --> movie-system/app/handler.UserRegisterJump (3 handlers)
-[GIN-debug] POST   /user/register            --> movie-system/app/handler.UserRegister (3 handlers)
-[GIN-debug] GET    /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] POST   /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] PUT    /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] PATCH  /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] HEAD   /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] OPTIONS /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] DELETE /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] CONNECT /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] TRACE  /user/login               --> movie-system/app/handler.UserLogin (3 handlers)
-[GIN-debug] GET    /user/profile/            --> movie-system/app/handler.UserProfile (4 handlers)
-[GIN-debug] POST   /user/update              --> movie-system/app/handler.UpdateUserProfile (4 handlers)
-[GIN-debug] GET    /                         --> movie-system/app/handler.MovieIndex (3 handlers)
-[GIN-debug] GET    /movie/show               --> movie-system/app/handler.ShowAllMovies (3 handlers)
-=== RUN   TestName
---- PASS: TestName (0.01s)
-=== RUN   TestUserNameAgeSave
-[GIN] 2020/03/10 - 09:30:58 | 200 |      29.761µs |                 | GET      /user?name=zhangsan&age=30
---- PASS: TestUserNameAgeSave (0.00s)
-=== RUN   TestUserPostForm
-id: 29
-email 123@gmail.com password 123 password again 123
-[GIN] 2020/03/10 - 09:30:58 | 301 |   11.000113ms |                 | POST     /user/register
---- PASS: TestUserPostForm (0.01s)
-=== RUN   TestUserLogin
-2020/03/10 09:30:58 登录成功 123@gmail.com
-[GIN] 2020/03/10 - 09:30:58 | 200 |    1.449727ms |                 | POST     /user/login
---- PASS: TestUserLogin (0.00s)
-PASS
-ok  	movie-system	0.036s
+goroutine 1 [running]:
+log.Panicln(0xc0000e9e78, 0x2, 0x2)
+	/home/travis/.gimme/versions/go1.14.linux.amd64/src/log/log.go:365 +0xac
+movie-system/app/kit.init.0()
+	/home/travis/gopath/src/github.com/br7roy/movie-system/app/kit/sysConf.go:48 +0x3e0
+FAIL	movie-system/test	0.010s
+FAIL
 go test done.
 start deploy master.
 rootDir is /home/travis/gopath/src/github.com/br7roy/movie-system
 all done
-Finish at:2020-03-10 09:31:01
-elapse: 38s
+Finish at:2020-03-11 06:44:12
+elapse: 15s

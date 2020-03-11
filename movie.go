@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/prometheus/common/log"
 	"movie-system/app/kit"
 	"movie-system/app/middle"
 	"movie-system/app/router"
@@ -13,6 +14,10 @@ import (
 // https://juejin.im/user/582c029e2e958a0069b1feb2/posts
 //图标 https://www.easyicon.net/1225507-camcorder_camera_movie_record_video_icon.html
 func main() {
+
+	config := kit.AppConfig
+
+	log.Info(config)
 
 	engine := gin.Default()
 
@@ -31,6 +36,7 @@ func main() {
 	// 初始化路由管理
 	router := initRouter.SetupRouter(engine)
 
-	_ = router.Run(":8080")
+	gin.SetMode(kit.AppConfig.Server.Mode)
+	_ = router.Run(":" + kit.AppConfig.Server.Port)
 
 }
