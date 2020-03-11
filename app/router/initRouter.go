@@ -15,28 +15,37 @@ func SetupRouter(engine *gin.Engine) *gin.Engine {
 		})
 	})*/
 
-	uGroup := engine.Group("/user")
+	/*	uGroup := engine.Group("/user")
+		{
+			uGroup.Any("", handler.UserNameAgeSave)
+			//uGroup.Any("/:name", handler.UserSave)
+			uGroup.GET("/rj", handler.UserRegisterJump)
+			uGroup.POST("/register", handler.UserRegister)
+			uGroup.Any("/login", handler.UserLogin)
+			uGroup.GET("/profile/", middle.Auth(), handler.UserProfile)
+			uGroup.POST("/update", middle.Auth(), handler.UpdateUserProfile)
+
+		}*/
+
+	mGroup := engine.Group("movie")
 	{
+		mGroup.GET("", handler.MovieIndex)
+
+		mGroup.GET("/show", handler.ShowAllMovies)
+
+		uGroup := mGroup.Group("/user")
 		uGroup.Any("", handler.UserNameAgeSave)
 		//uGroup.Any("/:name", handler.UserSave)
 		uGroup.GET("/rj", handler.UserRegisterJump)
 		uGroup.POST("/register", handler.UserRegister)
 		uGroup.Any("/login", handler.UserLogin)
-		uGroup.GET("/profile/", middle.Auth(), handler.UserProfile)
+		uGroup.GET("/profile", middle.Auth(), handler.UserProfile)
 		uGroup.POST("/update", middle.Auth(), handler.UpdateUserProfile)
-
 	}
-
-	indexGroup := engine.Group("")
-	{
-		indexGroup.GET("", handler.MovieIndex)
-
-		//indexGroup.GET("/show", handler.ShowAllMovies)
-	}
-	mGroup := engine.Group("/movie")
-	{
-		mGroup.GET("/show", handler.ShowAllMovies)
-	}
+	//mGroup := engine.Group("/movie")
+	//{
+	//	mGroup.GET("/show", handler.ShowAllMovies)
+	//}
 
 	return engine
 }
