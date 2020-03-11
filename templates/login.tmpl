@@ -1,5 +1,5 @@
 {{define "login-form"}}
-    <form action="/user/login" method="post">
+    <form action="/movie/user/login" method="post">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="输入 email"
@@ -15,7 +15,7 @@
 {{end}}
 
 {{define "register-form"}}
-    <form action="/user/register" method="post">
+    <form action="/movie/user/register" method="post">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"

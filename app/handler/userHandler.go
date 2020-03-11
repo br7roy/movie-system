@@ -129,6 +129,6 @@ func UpdateUserProfile(context *gin.Context) {
 		})
 		log.Panicln("数据无法更新", e.Error())
 	}
-	context.Redirect(http.StatusMovedPermanently, "/user/profile?id="+strconv.Itoa(user.Id))
+	context.Redirect(http.StatusMovedPermanently, "/movie/user/profile?id="+strconv.Itoa(user.Id))
 
 }
