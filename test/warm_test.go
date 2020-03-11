@@ -1,4 +1,4 @@
-package main
+package test
 
 import (
 	"bytes"
@@ -20,10 +20,10 @@ func init() {
 	engine := gin.Default()
 	if mode := gin.Mode(); mode == gin.DebugMode {
 		engine.LoadHTMLGlob("./templates/*")
-		engine.Static("./statics", "./statics")
+		engine.Static("../statics", "../statics")
 	} else {
 		engine.LoadHTMLGlob("templates/*")
-		engine.Static("./statics", "./statics")
+		engine.Static("../statics", "../statics")
 	}
 	router = initRouter.SetupRouter(engine)
 

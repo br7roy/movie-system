@@ -12,8 +12,14 @@ server:
   host: 0.0.0.0
   port: 8080
 
-datasource:
-  host:
+database:
+  type: mysql
+  storeHouse: movie-system
+  url: 127.0.0.1
   password:
-  schema:
+
+jwt:
+  secret: asdjfoiwaef
+  expired: 100000
+
 #https://blog.csdn.net/hexiaoyun128/article/details/83109598

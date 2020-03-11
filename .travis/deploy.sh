@@ -3,7 +3,7 @@
 run() {
   starttime=$(date +'%Y-%m-%d %H:%M:%S')
   echo -e "start go test...\nat:${starttime}"
-  go test -v $(pwd)
+  go test -v $(pwd)/test
   echo -e "go test done.\nstart deploy master."
   dir=$(
     cd -P $(dirname $0)
