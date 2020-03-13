@@ -15,6 +15,7 @@ matrix:
 branches:
   only:
     - dev
+    - root-dev
 
 git:
   depth: 10
