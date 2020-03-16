@@ -15,7 +15,7 @@ database:
   type: mysql
   storeHouse: movie-system
   port: 3306
-  url: 127.0.0.1
+  url: 172.17.0.2
   userName: movie-system
   password: ZaW6rjRcee26ijEc
 
