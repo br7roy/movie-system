@@ -3,5 +3,5 @@
 /.travis/linux/movie
 .ignore
 .idea/
-/app.yaml
 /pkg/
+/app.yaml
