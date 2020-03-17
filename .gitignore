@@ -1,3 +1,7 @@
 /movie.exe
 /movie
 /.travis/linux/movie
+.ignore
+.idea/
+/app.yaml
+/pkg/

@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"database/sql"
 	"github.com/gin-gonic/gin"
 	"log"
 	"movie-system/app/kit"
@@ -30,7 +29,7 @@ func UserRegisterJump(ctx *gin.Context) {
 }
 
 func UserRegister(ctx *gin.Context) {
-	var user model.UserModel
+	var user model.User
 
 	if err := ctx.ShouldBind(&user); err != nil {
 		ctx.String(http.StatusBadRequest, "输入的数据不合法")
@@ -51,12 +50,12 @@ func UserRegister(ctx *gin.Context) {
 	//password := ctx.DefaultPostForm("password", "123")
 	//passwordAgain := ctx.DefaultPostForm("password-again", "123")
 
-	println("email", user.Email, "password", user.Password, "password again", user.PasswordAgain)
+	println("email", user.Email, "password", user.Password, "password again")
 
 }
 
 func UserLogin(context *gin.Context) {
-	var user model.UserModel
+	var user model.User
 	if e := context.Bind(&user); e != nil {
 		log.Panicln("login 绑定错误", e.Error())
 	}
@@ -64,10 +63,10 @@ func UserLogin(context *gin.Context) {
 	u := user.QueryByEmail()
 	if u.Password == user.Password {
 		log.Println("登录成功", u.Email)
-		context.SetCookie(kit.COOKIE_NAME, string(u.Id), 60000, "/", "localhost", false, true)
+		context.SetCookie(kit.COOKIE_NAME, string(u.ID), 60000, "/", "localhost", false, true)
 		context.HTML(http.StatusOK, "index.tmpl", gin.H{
 			"email": u.Email,
-			"id":    u.Id,
+			"id":    u.ID,
 			"user":  u,
 		})
 	}
@@ -75,7 +74,7 @@ func UserLogin(context *gin.Context) {
 
 func UserProfile(context *gin.Context) {
 	id := context.Query("id")
-	var user model.UserModel
+	var user model.User
 	i, err := strconv.Atoi(id)
 	u, e := user.QueryById(i)
 	if e != nil || err != nil {
@@ -87,8 +86,9 @@ func UserProfile(context *gin.Context) {
 		"user": u,
 	})
 }
+
 func UpdateUserProfile(context *gin.Context) {
-	var user model.UserModel
+	var user model.User
 	if err := context.ShouldBind(&user); err != nil {
 		context.HTML(http.StatusOK, "error.tmpl", gin.H{
 			"error": err.Error(),
@@ -121,14 +121,39 @@ func UpdateUserProfile(context *gin.Context) {
 		log.Panicln("无法保存文件", e.Error())
 	}
 	avatarUrl := "http://localhost:8080/avatar/" + fileName
-	user.Avatar = sql.NullString{String: avatarUrl}
-	_ = user.Update(user.Id)
+	user.Avatar = avatarUrl
+
+	//===============================
+
+	/*	fil := make([][]byte, 0)
+		var b int64 = 0
+		openFile, _ := file.Open()
+		// 通过for循环写入
+		for {
+			buffer := make([]byte, 1024)
+			n, err := openFile.ReadAt(buffer, b)
+			b = b + int64(n)
+			fil = append(fil, buffer)
+			if err != nil {
+				fmt.Println(err.Error())
+				break
+			}
+		}
+		// 生成最后的文件字节流
+		fileStream := bytes.Join(fil, []byte(""))
+
+		s := *(*string)(unsafe.Pointer(&fileStream))
+		user.Avatar=s*/
+	//=================================
+
+	_ = user.Update(user.ID)
+
 	if e != nil {
 		context.HTML(http.StatusOK, "error.tmpl", gin.H{
 			"error": e,
 		})
 		log.Panicln("数据无法更新", e.Error())
 	}
-	context.Redirect(http.StatusMovedPermanently, "/movie/user/profile?id="+strconv.Itoa(user.Id))
+	context.Redirect(http.StatusMovedPermanently, "/user/profile?id="+strconv.Itoa(user.ID))
 
 }
