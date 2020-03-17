@@ -14,4 +14,7 @@
 -   sqlite3
 
     -   [go with sqlite3](https://godoc.org/github.com/mattn/go-sqlite3)
+    
+-   gorm
+    -   [操作文档](http://gorm.book.jasperxu.com)
 

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"movie-system/app/db"
-	"movie-system/app/kit"
 	"movie-system/app/model"
 	"net/http"
 )
@@ -18,27 +17,27 @@ func MovieIndex(ctx *gin.Context) {
 
 func ShowAllMovies(context *gin.Context) {
 
-	sql_table := "select * from movie"
-	query, err := db.Db.Query(sql_table)
+	//sql_table := "select * from movie"
 
-	kit.IfNull(err)
+	//query, err := db.Db.Query(sql_table)
 
-	var id int
-	var name string
-	var desc string
-	var path string
+	//kit.IfNull(err)
+	/*	for query.Next() {
+			err := query.Scan(&id, &name, &desc, &path)
+
+			kit.IfNull(err)
+
+			movie := model.Movie{ID: id, Path: path, Desc: desc, Name: name}
+			movies = append(movies, movie)
+		}
+		var id int
+		var name string
+		var desc string
+		var path string
+			_ = query.Close()
+	*/
 	var movies []model.Movie
-
-	for query.Next() {
-		err := query.Scan(&id, &name, &desc, &path)
-
-		kit.IfNull(err)
-
-		movie := model.Movie{Id: id, Path: path, Desc: desc, Name: name}
-		movies = append(movies, movie)
-	}
-
-	_ = query.Close()
+	db.Db.Find(&movies)
 
 	if gin.Mode() == gin.DebugMode {
 		for _, movie := range movies {

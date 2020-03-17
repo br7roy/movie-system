@@ -57,5 +57,5 @@ func init() {
 	d, _ := yaml.Marshal(&t)
 	fmt.Println(string(d))
 
-	fmt.Printf("-----\t config ok .continue")
+	fmt.Printf("-----\t config ok .continue\n")
 }
