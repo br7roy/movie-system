@@ -9,12 +9,15 @@
 
 ### middleware using:
 -   Gin
-    -   [gin中文文档](https://github.com/bddbnet/gin_readme_zh)
+    -   [Go Web](https://github.com/bddbnet/gin_readme_zh)
     
 -   sqlite3
 
     -   [go with sqlite3](https://godoc.org/github.com/mattn/go-sqlite3)
     
 -   gorm
-    -   [操作文档](http://gorm.book.jasperxu.com)
+    -   [ORM CRUD](http://gorm.book.jasperxu.com)
+    
+-   packr
+    -   [Integrate package](https://godoc.org/github.com/gobuffalo/packr/v2)
 

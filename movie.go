@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/gobuffalo/packr/v2"
 	"github.com/prometheus/common/log"
 	"movie-system/app/kit"
 	"movie-system/app/middle"
