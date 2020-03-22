@@ -10,8 +10,8 @@ func SetupRouter(engine *gin.Engine) *gin.Engine {
 
 	/*	engine.GET("/", func(context *gin.Context) {
 		context.JSON(200, gin.H{
-			"hello": "https://takfu.tk/movie",
-			"blog":  "https://takblog.netlify.com",
+			"hello": "https://movie.takfu.tk",
+			"blog":  "https://blog.takfu.tk",
 		})
 	})*/
 
