@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
-	"movie-system/app/router"
+	"moviex/app/router"
 	"net/http"
 	"net/http/httptest"
 	"net/url"

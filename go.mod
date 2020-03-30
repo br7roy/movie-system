@@ -1,4 +1,4 @@
-module movie-system
+module moviex
 
 go 1.14
 

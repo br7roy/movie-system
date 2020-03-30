@@ -3,8 +3,8 @@ package test
 import (
 	"fmt"
 	"io/ioutil"
-	"movie-system/app/db"
-	"movie-system/app/model"
+	"moviex/app/db"
+	"moviex/app/model"
 	"testing"
 	"unsafe"
 )

@@ -3,8 +3,8 @@ package handler
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"movie-system/app/db"
-	"movie-system/app/model"
+	"moviex/app/db"
+	"moviex/app/model"
 	"net/http"
 )
 

@@ -1,7 +1,7 @@
 package model
 
 import (
-	"movie-system/app/db"
+	"moviex/app/db"
 )
 
 type User struct {

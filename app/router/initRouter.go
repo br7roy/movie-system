@@ -2,8 +2,8 @@ package initRouter
 
 import (
 	"github.com/gin-gonic/gin"
-	"movie-system/app/handler"
-	"movie-system/app/middle"
+	"moviex/app/handler"
+	"moviex/app/middle"
 )
 
 func SetupRouter(engine *gin.Engine) *gin.Engine {
