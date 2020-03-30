@@ -10,8 +10,7 @@ import (
 
 func MovieIndex(ctx *gin.Context) {
 	ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
-		"title":    "Movie coming.",
-		"navTitle": "Hello World",
+		"title": "优秀电影收集",
 	})
 }
 
