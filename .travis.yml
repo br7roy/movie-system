@@ -23,7 +23,7 @@ git:
 before_install:
   - if [[ "${GO111MODULE}" = "on" ]]; then mkdir "${HOME}/go"; export GOPATH="${HOME}/go"; fi
   - if [ ! -f "$(pwd)/.travis/deploy.sh" ]; then chmod +x $(pwd)/.travis/deploy.sh ; fi
-  - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in .travis/movie-system.enc -out ~/.ssh/id_rsa_github -d
+  - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in .travis/moviex.enc -out ~/.ssh/id_rsa_github -d
   - chmod 600 ~/.ssh/id_rsa_github
   - cp .travis/ssh_config ~/.ssh/config
   - git config --global user.name "Tak via travis-cli"
@@ -37,7 +37,7 @@ install:
 #go_import_path: github.com/gin-gonic/gin
 
 script:
-  - git clone --branch master git@github.com:br7roy/movie-system.git ~/.master_deploy
+  - git clone --branch master git@github.com:br7roy/moviex.git ~/.master_deploy
   - rm -fr ~/.master_deploy/*
 
 #  - make vet
