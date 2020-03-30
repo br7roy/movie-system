@@ -5,8 +5,8 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	"log"
-	"movie-system/app/kit"
-	_ "movie-system/app/kit"
+	"moviex/app/kit"
+	_ "moviex/app/kit"
 )
 
 //var Db *sql.DB

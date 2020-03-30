@@ -3,7 +3,7 @@ package test
 import (
 	"fmt"
 	"io/ioutil"
-	"movie-system/app/kit"
+	"moviex/app/kit"
 	"path"
 	"runtime"
 	"testing"

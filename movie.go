@@ -5,9 +5,9 @@ import (
 	"github.com/gobuffalo/packr/v2"
 	"github.com/prometheus/common/log"
 	"html/template"
-	"movie-system/app/kit"
-	"movie-system/app/middle"
-	"movie-system/app/router"
+	"moviex/app/kit"
+	"moviex/app/middle"
+	"moviex/app/router"
 	"net/http"
 )
 
@@ -27,9 +27,16 @@ func main() {
 	// 添加中间件
 	engine.Use(middle.Logger())
 
+	//engine.SetHTMLTemplate(initTemplate())
+
+	//box := packr.NewBox("./templates")
+	staticBox := packr.NewBox("./statics")
+	engine.SetHTMLTemplate(initTemplate())
+	engine.StaticFS("/statics", staticBox)
+
 	// 引入静态资源
-	engine.LoadHTMLGlob("templates/*")
-	engine.Static("/statics", "./statics")
+	//engine.LoadHTMLGlob("templates/*")
+	//engine.Static("/statics", "./statics")
 
 	// 添加网站icon
 	engine.StaticFile("/favicon.ico", "./favicon.ico")
@@ -44,20 +51,50 @@ func main() {
 
 }
 
-
 //https://segmentfault.com/q/1010000020928692?sort=created
-func initTemplate()  *template.Template {
-	box := packr.NewBox("templates/*")
+func initTemplate() *template.Template {
+	box := packr.NewBox("./templates")
 	t := template.New("")
 
-	tmpl := t.New("index.html")
-	data, _ := box.FindString("index.html")
+	tmpl := t.New("index.tmpl")
+	data, _ := box.FindString("index.tmpl")
+	tmpl.Parse(data)
+	tmpl = t.New("401.tmpl")
+	data, _ = box.FindString("401.tmpl")
 	tmpl.Parse(data)
 
-	tmpl = t.New("admin/index.html")
-	data, _ = box.FindString("admin/index.html")
+	tmpl = t.New("error.tmpl")
+	data, _ = box.FindString("error.tmpl")
 	tmpl.Parse(data)
+
+	tmpl = t.New("footer.tmpl")
+	data, _ = box.FindString("footer.tmpl")
+	tmpl.Parse(data)
+
+	tmpl = t.New("header.tmpl")
+	data, _ = box.FindString("header.tmpl")
+	tmpl.Parse(data)
+
+	tmpl = t.New("login.tmpl")
+	data, _ = box.FindString("login.tmpl")
+	tmpl.Parse(data)
+
+	tmpl = t.New("main.tmpl")
+	data, _ = box.FindString("main.tmpl")
+	tmpl.Parse(data)
+
+	tmpl = t.New("movie.tmpl")
+	data, _ = box.FindString("movie.tmpl")
+	tmpl.Parse(data)
+
+	tmpl = t.New("nav.tmpl")
+	data, _ = box.FindString("nav.tmpl")
+	tmpl.Parse(data)
+
+	tmpl = t.New("user_profile.tmpl")
+	data, _ = box.FindString("user_profile.tmpl")
+	tmpl.Parse(data)
+
 	return t
-
 
 }

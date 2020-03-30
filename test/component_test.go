@@ -1,9 +1,9 @@
 package test
 
 import (
-	"movie-system/app/db"
-	"movie-system/app/kit"
-	"movie-system/app/model"
+	"moviex/app/db"
+	"moviex/app/kit"
+	"moviex/app/model"
 	"testing"
 )
 

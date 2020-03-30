@@ -3,7 +3,7 @@ package middle
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"movie-system/app/kit"
+	"moviex/app/kit"
 	"net/http"
 	"time"
 )

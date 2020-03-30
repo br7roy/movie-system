@@ -3,8 +3,8 @@ package handler
 import (
 	"github.com/gin-gonic/gin"
 	"log"
-	"movie-system/app/kit"
-	"movie-system/app/model"
+	"moviex/app/kit"
+	"moviex/app/model"
 	"net/http"
 	"os"
 	"path/filepath"
