@@ -1,10 +1,10 @@
 start go test...
-at:2020-03-30 05:00:47
+at:2020-03-30 05:14:13
 FAIL	moviex/test [build failed]
 FAIL
 go test done.
 start deploy master.
 rootDir is /home/travis/gopath/src/github.com/br7roy/movie-system
 all done
-Finish at:2020-03-30 05:01:04
-elapse: 17s
+Finish at:2020-03-30 05:14:29
+elapse: 16s
