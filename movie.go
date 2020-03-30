@@ -27,14 +27,11 @@ func main() {
 	// 添加中间件
 	engine.Use(middle.Logger())
 
-	//engine.SetHTMLTemplate(initTemplate())
-
-	//box := packr.NewBox("./templates")
+	// 引入静态资源
 	staticBox := packr.NewBox("./statics")
 	engine.SetHTMLTemplate(initTemplate())
 	engine.StaticFS("/statics", staticBox)
 
-	// 引入静态资源
 	//engine.LoadHTMLGlob("templates/*")
 	//engine.Static("/statics", "./statics")
 
@@ -93,6 +90,10 @@ func initTemplate() *template.Template {
 
 	tmpl = t.New("user_profile.tmpl")
 	data, _ = box.FindString("user_profile.tmpl")
+	tmpl.Parse(data)
+
+	tmpl = t.New("favicon.ico")
+	data, _ = box.FindString("favicon.ico")
 	tmpl.Parse(data)
 
 	return t
