@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gobuffalo/packr/v2"
 	"github.com/prometheus/common/log"
+	"html/template"
 	"movie-system/app/kit"
 	"movie-system/app/middle"
 	"movie-system/app/router"
@@ -14,6 +15,7 @@ import (
 //模板 https://www.popmars.com/category/html%e6%a8%a1%e6%9d%bf/
 // https://juejin.im/user/582c029e2e958a0069b1feb2/posts
 //图标 https://www.easyicon.net/1225507-camcorder_camera_movie_record_video_icon.html
+//发布 https://halu.lu/post/goreleaser-tutorial/
 func main() {
 
 	config := kit.AppConfig
@@ -39,5 +41,23 @@ func main() {
 
 	gin.SetMode(kit.AppConfig.Server.Mode)
 	_ = router.Run(":" + kit.AppConfig.Server.Port)
+
+}
+
+
+//https://segmentfault.com/q/1010000020928692?sort=created
+func initTemplate()  *template.Template {
+	box := packr.NewBox("templates/*")
+	t := template.New("")
+
+	tmpl := t.New("index.html")
+	data, _ := box.FindString("index.html")
+	tmpl.Parse(data)
+
+	tmpl = t.New("admin/index.html")
+	data, _ = box.FindString("admin/index.html")
+	tmpl.Parse(data)
+	return t
+
 
 }
