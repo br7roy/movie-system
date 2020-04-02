@@ -9,8 +9,11 @@ import (
 )
 
 func MovieIndex(ctx *gin.Context) {
+	user := GetUserIfAvaliable(ctx)
+
 	ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
 		"title": "优秀电影收集",
+		"user":  user,
 	})
 }
 
@@ -44,8 +47,10 @@ func ShowAllMovies(context *gin.Context) {
 		}
 	}
 
+	user := GetUserIfAvaliable(context)
 	context.HTML(http.StatusOK, "index.tmpl", gin.H{
 		"movies": movies,
+		"user":   user,
 	})
 
 }

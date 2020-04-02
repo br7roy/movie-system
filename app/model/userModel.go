@@ -13,6 +13,8 @@ type User struct {
 	Avatar string
 }
 
+var UserInfo = make(map[int]User)
+
 func Save(user *User) int64 {
 
 	model := User{Email: user.Email, Password: user.Password}

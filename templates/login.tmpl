@@ -1,5 +1,5 @@
 {{define "login-form"}}
-    <form action="/user/login" method="post">
+    <form id="lForm" action="/user/login" method="post">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="输入 email"
@@ -10,7 +10,7 @@
             <label for="password">密码</label>
             <input type="password" class="form-control" id="password" placeholder="密码" name="password">
         </div>
-        <button type="submit" class="btn btn-primary">登录</button>
+        <button type="submit" class="glyphicon glyphicon-log-in"  >登录</button>
     </form>
 {{end}}
 

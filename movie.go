@@ -92,9 +92,9 @@ func initTemplate() *template.Template {
 	data, _ = box.FindString("user_profile.tmpl")
 	tmpl.Parse(data)
 
-	/*	tmpl = t.New("favicon.ico")
-		data, _ = box.FindString("favicon.ico")
-		tmpl.Parse(data)*/
+	tmpl = t.New("cusjs.tmpl")
+	data, _ = box.FindString("cusjs.tmpl")
+	tmpl.Parse(data)
 
 	return t
 
