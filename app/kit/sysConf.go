@@ -35,7 +35,9 @@ type server struct {
 }
 
 var (
-	AppConfig appConfig
+	AppConfig   appConfig
+	Secret      = "asdasd"
+	OneDayHours = 60 * 60 * 24
 )
 
 func init() {

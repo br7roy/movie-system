@@ -29,9 +29,9 @@ func SetupRouter(engine *gin.Engine) *gin.Engine {
 
 	mGroup := engine.Group("")
 	{
-		mGroup.GET("", handler.MovieIndex)
+		mGroup.GET("", middle.Auth(), handler.MovieIndex)
 
-		mGroup.GET("/show", handler.ShowAllMovies)
+		mGroup.GET("/show", middle.Auth(), handler.ShowAllMovies)
 
 		uGroup := mGroup.Group("/user")
 		uGroup.Any("", handler.UserNameAgeSave)

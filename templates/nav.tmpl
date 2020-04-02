@@ -17,9 +17,9 @@
                     <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">关于</a>
                 </li>
                 <li class="nav-item">
-                    {{if .email}}
+                    {{if .user.Email}}
                         <a class="nav-link" href="/user/profile?id={{.id}}">
-                            Hello! {{.email}}
+                            Hello! {{.user.Email}}
                         </a>
                     {{else}}
                         {{/*            <li class="navbar-brand">*/}}
@@ -28,26 +28,27 @@
                     {{end}}
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
-            </form>
-            {{ if .email }}
+            {{ if .user.Email }}
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/profile?id={{.id}}">我的资料</a>
+                        <a class="nav-link" href="/user/profile?id={{.user.ID}}">我的资料</a>
                     </li>
                 </ul>
             {{ else }}
                 <ul class="navbar-nav ">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#login-modal">登录</a>
+                    <li >
+                        <button class="glyphicon glyphicon-play-circle" style="color: rgb(37, 76, 166); font-size: 15px; text-shadow: rgb(0, 0, 0) 0px 1px 1px;" data-toggle="modal" data-target="#login-modal">登录</button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#register-modal">注册</a>
+                    <li >
+                        <button class="glyphicon glyphicon-check" data-toggle="modal" data-target="#register-modal" style="color: rgb(37, 76, 166); font-size: 15px; text-shadow: rgb(0, 0, 0) 0px 1px 1px;">注册</button>
                     </li>
                 </ul>
             {{end}}
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="glyphicon glyphicon-search my-2 my-sm-0" style="color: rgb(109, 177, 39); font-size: 15px; text-shadow: rgb(0, 0, 0) 0px 1px 1px;" type="submit">搜索</button>
+            </form>
+
         </div>
     </nav>
 

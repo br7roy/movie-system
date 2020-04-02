@@ -55,6 +55,12 @@ func UserRegister(ctx *gin.Context) {
 }
 
 func UserLogin(context *gin.Context) {
+	result := &model.Result{
+		Code:    200,
+		Message: "登录成功",
+		Data:    nil,
+	}
+
 	var user model.User
 	if e := context.Bind(&user); e != nil {
 		log.Panicln("login 绑定错误", e.Error())
@@ -62,12 +68,66 @@ func UserLogin(context *gin.Context) {
 
 	u := user.QueryByEmail()
 	if u.Password == user.Password {
+
 		log.Println("登录成功", u.Email)
-		context.SetCookie(kit.COOKIE_NAME, string(u.ID), 60000, "/", "localhost", false, true)
+		context.SetCookie(kit.COOKIE_NAME, strconv.Itoa(u.ID), 60000, "/", "localhost", false, true)
+		model.UserInfo[u.ID] = u
 		context.HTML(http.StatusOK, "index.tmpl", gin.H{
-			"email": u.Email,
-			"id":    u.ID,
-			"user":  u,
+			"result": result,
+			"email":  u.Email,
+			"id":     u.ID,
+			"user":   u,
+		})
+
+		/*
+
+		      		experTime := time.Now().Unix() + int64(kit.OneDayHours)
+		      		claims := jwt.StandardClaims{
+		      			Audience:  user.Email,        // 受众
+		      			ExpiresAt: experTime,         // 失效时间
+		      			Id:        string(user.ID),   // 编号
+		      			IssuedAt:  time.Now().Unix(), // 签发时间
+		      			Issuer:    "gin hello",       // 签发人
+		      			NotBefore: time.Now().Unix(), // 生效时间
+		      			Subject:   "login",           // 主题
+		      		}
+		   		jwtSecret := []byte(kit.Secret)
+
+		   		tokenCls := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+
+		   		if token, err := tokenCls.SignedString(jwtSecret); err == nil {
+		   			result.Message = "登录成功"
+		   			result.Data = "Bearer " + token
+		   			result.Code = http.StatusOK
+		   			context.Header("Token", "Bearer "+token)
+		   			context.JSON(result.Code, gin.H{
+		   				"result": result,
+		   				"email":  u.Email,
+		   				"id":     u.ID,
+		   				"user":   u,
+		   			})
+		   			context.HTML(result.Code, "index.tmpl", gin.H{
+		   				"result": result,
+		   				"email":  u.Email,
+		   				"id":     u.ID,
+		   				"user":   u,
+		   			})
+
+		   			return
+		   		} else {
+		   			result.Message = "登录失败"
+		   			result.Code = http.StatusOK
+		   			context.JSON(result.Code, gin.H{
+		   				"result": result,
+		   			})
+		   		}
+		*/
+
+	} else {
+		result.Message = "登录失败,密码错误"
+		result.Code = http.StatusOK
+		context.JSON(result.Code, gin.H{
+			"result": result,
 		})
 	}
 }
@@ -120,6 +180,7 @@ func UpdateUserProfile(context *gin.Context) {
 		})
 		log.Panicln("无法保存文件", e.Error())
 	}
+
 	avatarUrl := "http://localhost:8080/avatar/" + fileName
 	user.Avatar = avatarUrl
 
@@ -154,6 +215,7 @@ func UpdateUserProfile(context *gin.Context) {
 		})
 		log.Panicln("数据无法更新", e.Error())
 	}
-	context.Redirect(http.StatusMovedPermanently, "/user/profile?id="+strconv.Itoa(user.ID))
+	//context.Redirect(http.StatusMovedPermanently, "/user/profile?id="+strconv.Itoa(user.ID))
+	context.Redirect(http.StatusMovedPermanently, "/")
 
 }
