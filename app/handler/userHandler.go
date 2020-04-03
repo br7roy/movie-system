@@ -70,7 +70,7 @@ func UserLogin(context *gin.Context) {
 	if u.Password == user.Password {
 
 		log.Println("登录成功", u.Email)
-		context.SetCookie(kit.COOKIE_NAME, strconv.Itoa(u.ID), 60000, "/", "localhost", false, true)
+		context.SetCookie(kit.COOKIE_NAME, strconv.Itoa(u.ID), 60000, "/", ".movie.takfu.tk", false, true)
 		model.UserInfo[u.ID] = u
 		context.HTML(http.StatusOK, "index.tmpl", gin.H{
 			"result": result,
