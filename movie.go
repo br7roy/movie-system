@@ -34,7 +34,7 @@ func main() {
 
 	//engine.LoadHTMLGlob("templates/*")
 	//engine.Static("/statics", "./statics")
-
+	//engine.StaticFile("/statics", 	staticBox.String("favicon.ico"))
 	// 添加网站icon
 	engine.StaticFile("/favicon.ico", "./favicon.ico")
 
