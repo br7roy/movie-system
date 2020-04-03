@@ -31,3 +31,4 @@ password:123
 ### Features to be developed
 * [ ] Home background beautify
 * [ ] Save user avatar to services
+* [ ] User logout & switch
