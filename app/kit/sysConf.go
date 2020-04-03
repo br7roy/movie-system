@@ -30,8 +30,9 @@ type jwt struct {
 }
 
 type server struct {
-	Mode string `yaml:"mode"`
-	Port string `yaml:"port"`
+	Mode   string `yaml:"mode"`
+	Port   string `yaml:"port"`
+	Domain string `yaml:"domain"`
 }
 
 var (

@@ -18,7 +18,7 @@
                 </li>
                 <li class="nav-item">
                     {{if .user.Email}}
-                        <a class="nav-link" href="/user/profile?id={{.id}}">
+                        <a class="nav-link" href="/user/profile?id={{.user.ID}}">
                             Hello! {{.user.Email}}
                         </a>
                     {{else}}
@@ -31,7 +31,7 @@
             {{ if .user.Email }}
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/profile?id={{.user.ID}}">我的资料</a>
+                        <a class="nav-link" href="/user/profile?id={{.user.ID}}"><img class="img-fluid" src="{{.user.Avatar}}" width="50" height="50"></a>
                     </li>
                 </ul>
             {{ else }}
