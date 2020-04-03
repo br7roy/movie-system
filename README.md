@@ -6,13 +6,6 @@
 
 #####  [View the latest deployment logs](deploy.log)
 
-Experience path
-[https://movie.takfu.tk](https://movie.takfu.tk)  
-
-### Experience account  
-account:123@gmai.com  
-password:123  
-
 
 ### middleware using:
 -   Gin
@@ -27,8 +20,4 @@ password:123
     
 -   packr
     -   [Integrate package](https://godoc.org/github.com/gobuffalo/packr/v2)
-
-### Features to be developed
-* [ ] Home background beautify
-* [ ] Save user avatar to services
 

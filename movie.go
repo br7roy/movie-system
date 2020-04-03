@@ -16,6 +16,8 @@ import (
 // https://juejin.im/user/582c029e2e958a0069b1feb2/posts
 //图标 https://www.easyicon.net/1225507-camcorder_camera_movie_record_video_icon.html
 //发布 https://halu.lu/post/goreleaser-tutorial/
+//fileServer https://developer.qiniu.com/kodo/sdk/1238/go#3
+//https://github.com/qiniu/api.v7/wiki
 func main() {
 
 	config := kit.AppConfig
