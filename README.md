@@ -32,3 +32,5 @@ password:123
 * [ ] Home background beautify
 * [ ] Save user avatar to services
 * [ ] User logout & switch
+* [ ] Paginated display
+
