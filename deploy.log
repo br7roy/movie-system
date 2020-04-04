@@ -1,6 +1,6 @@
 start go test...
-at:2020-04-03 12:08:01
-2020/04/03 12:08:15 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/movie-system/test/app.yaml: no such file or directory
+at:2020-04-04 04:23:05
+2020/04/04 04:23:19 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/movie-system/test/app.yaml: no such file or directory
 panic: 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/movie-system/test/app.yaml: no such file or directory
 
 
@@ -9,11 +9,11 @@ log.Panicln(0xc0000cdea8, 0x2, 0x2)
 	/home/travis/.gimme/versions/go1.14.1.linux.amd64/src/log/log.go:365 +0xac
 moviex/app/kit.init.0()
 	/home/travis/gopath/src/github.com/br7roy/movie-system/app/kit/sysConf.go:51 +0x3e0
-FAIL	moviex/test	0.007s
+FAIL	moviex/test	0.005s
 FAIL
 go test done.
 start deploy master.
 rootDir is /home/travis/gopath/src/github.com/br7roy/movie-system
 all done
-Finish at:2020-04-03 12:08:18
+Finish at:2020-04-04 04:23:22
 elapse: 17s
