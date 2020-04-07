@@ -14,7 +14,7 @@ account:123@gmai.com
 password:123  
 
 
-### middleware using:
+### Middleware using:
 -   Gin
     -   [Go Web](https://github.com/bddbnet/gin_readme_zh)
     
@@ -28,7 +28,7 @@ password:123
 -   packr
     -   [Integrate package](https://godoc.org/github.com/gobuffalo/packr/v2)
 
-### Features to be developed
+### Todo List
 * [ ] Home background beautify
 * [ ] Save user avatar to services
 * [ ] User logout & switch
