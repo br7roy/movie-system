@@ -6,8 +6,15 @@
 
 #####  [View the latest deployment logs](deploy.log)
 
+Experience path
+[https://movie.takfu.tk](https://movie.takfu.tk)  
 
-### middleware using:
+### Experience account  
+account:123@gmai.com  
+password:123  
+
+
+### Middleware using:
 -   Gin
     -   [Go Web](https://github.com/bddbnet/gin_readme_zh)
     
@@ -20,4 +27,10 @@
     
 -   packr
     -   [Integrate package](https://godoc.org/github.com/gobuffalo/packr/v2)
+
+### Todo List
+* [ ] Home background beautify
+* [ ] Save user avatar to services
+* [ ] User logout & switch
+* [ ] Paginated display
 
