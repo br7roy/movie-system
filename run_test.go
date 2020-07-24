@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"moviex/app/model"
+	"os"
+	"path/filepath"
+	"strings"
 	"testing"
 	"unsafe"
 )
@@ -26,5 +29,20 @@ func TestRun(t *testing.T) {
 	}
 	data := *(*[]byte)(unsafe.Pointer(testBytes))
 	fmt.Println("[]byte is : ", data)
+
+}
+func TestFile(t *testing.T) {
+	var fileAath = "C:\\Users\\Tak\\Desktop\\gofile"
+	/*	fileInfo, err := ioutil.ReadDir(fileAath)
+		if err != nil {
+			err.Error()
+		}*/
+
+	filepath.Walk(fileAath, func(path string, file os.FileInfo, err error) error {
+		if file.IsDir() && !strings.Contains(file.Name(), "@eaDir") {
+			fmt.Println(file.Name())
+		}
+		return nil
+	})
 
 }

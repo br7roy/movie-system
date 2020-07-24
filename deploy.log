@@ -1,19 +1,19 @@
 start go test...
-at:2020-04-07 01:00:02
-2020/04/07 01:00:16 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/movie-system/test/app.yaml: no such file or directory
-panic: 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/movie-system/test/app.yaml: no such file or directory
+at:2020-07-24 06:30:11
+2020/07/24 06:30:25 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/moviex/test/app.yaml: no such file or directory
+panic: 读取文件发生错误 open /home/travis/gopath/src/github.com/br7roy/moviex/test/app.yaml: no such file or directory
 
 
 goroutine 1 [running]:
-log.Panicln(0xc0000afea8, 0x2, 0x2)
-	/home/travis/.gimme/versions/go1.14.1.linux.amd64/src/log/log.go:365 +0xac
+log.Panicln(0xc0000cdea8, 0x2, 0x2)
+	/home/travis/.gimme/versions/go1.14.6.linux.amd64/src/log/log.go:365 +0xac
 moviex/app/kit.init.0()
-	/home/travis/gopath/src/github.com/br7roy/movie-system/app/kit/sysConf.go:51 +0x3e0
-FAIL	moviex/test	0.010s
+	/home/travis/gopath/src/github.com/br7roy/moviex/app/kit/sysConf.go:51 +0x3e0
+FAIL	moviex/test	0.007s
 FAIL
 go test done.
 start deploy master.
-rootDir is /home/travis/gopath/src/github.com/br7roy/movie-system
+rootDir is /home/travis/gopath/src/github.com/br7roy/moviex
 all done
-Finish at:2020-04-07 01:00:19
-elapse: 17s
+Finish at:2020-07-24 06:30:29
+elapse: 18s
