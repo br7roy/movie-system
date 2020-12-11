@@ -28,11 +28,12 @@ func main() {
 
 	// 添加中间件
 	engine.Use(middle.Logger())
+	engine.Use(middle.CORS())
 
 	// 引入静态资源
-	staticBox := packr.NewBox("./statics")
+	//staticBox := packr.NewBox("./statics")
 	engine.SetHTMLTemplate(initTemplate())
-	engine.StaticFS("/statics", staticBox)
+	//engine.StaticFS("/statics", staticBox)
 
 	//engine.LoadHTMLGlob("templates/*")
 	//engine.Static("/statics", "./statics")
