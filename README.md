@@ -29,8 +29,8 @@ password:123
     -   [Integrate package](https://godoc.org/github.com/gobuffalo/packr/v2)
 
 ### Docker
-* docker build -t moviex:v1.0.0
-* docker run -it -d -p 8080:8080 --name moviex moviex:v1.0.0
+* docker pull taknyx/moviex:1.0.0
+* docker run -it -d -p 8080:8080 --name moviex moviex:1.0.0
 
 ### Todo List
 * [ ] Home background beautify
