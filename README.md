@@ -6,7 +6,12 @@
 
 #####  [View the latest deployment logs](deploy.log)
 
-Experience path
+### Docker
+* docker pull taknyx/moviex:1.0.0
+* docker run -it -d -p 8080:8080 --name moviex moviex:1.0.0
+
+
+### Experience path
 [https://movie.takfu.tk](https://movie.takfu.tk)  
 
 ### Experience account  
@@ -27,10 +32,6 @@ password:123
     
 -   packr
     -   [Integrate package](https://godoc.org/github.com/gobuffalo/packr/v2)
-
-### Docker
-* docker pull taknyx/moviex:1.0.0
-* docker run -it -d -p 8080:8080 --name moviex moviex:1.0.0
 
 ### Todo List
 * [ ] Home background beautify
